@@ -22,7 +22,7 @@ class CATH(data.Dataset):
         alphabet='ACDEFGHIKLMNPQRSTVWY'
         alphabet_set = set([a for a in alphabet])
         if not os.path.exists(self.path):
-            raise "no such file:{} !!!".format(self.path)
+            raise FileNotFoundError("no such file:{} !!!".format(self.path))
         else:
             with open(self.path+'/chain_set.jsonl') as f:
                 lines = f.readlines()
