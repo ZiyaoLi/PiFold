@@ -1,5 +1,5 @@
-TORCH=1.12.1
-CUDA=cu116
+TORCH=2.1.0
+CUDA=cu121
 
 pip install torch-scatter     -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
 pip install torch-sparse      -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
