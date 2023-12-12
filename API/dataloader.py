@@ -16,12 +16,16 @@ def load_data(data_name, method, batch_size, data_root, num_workers=8, **kwargs)
         test_set.change_mode('test')
         if data_name == 'TS':
             test_set = TS(osp.join(data_root, 'ts'))
-        collate_fn = featurize_GTrans
+        collate_fn = lambda x: featurize_GTrans(
+            x,
+            shuffle_fraction=0.0,
+            noise_scale=kwargs.get("noise_scale", 0.0),
+            noise_per_atom=kwargs.get("noise_per_atom", False)
+        )
 
     train_loader = DataLoader_GTrans(train_set, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=collate_fn)
     valid_loader = DataLoader_GTrans(valid_set, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=collate_fn)
     test_loader = DataLoader_GTrans(test_set, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=collate_fn)
-    
     return train_loader, valid_loader, test_loader
 
 

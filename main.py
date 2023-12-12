@@ -108,15 +108,14 @@ if __name__ == '__main__':
 
     print(config)
     
-    
-    
     exp = Exp(args)
     
-    # svpath = '/gaozhangyang/experiments/ProDesign/results/ProDesign/'
-    # exp.method.model.load_state_dict(torch.load(svpath+'checkpoint.pth'))
+    ckp_path = args.checkpoint
+    exp.method.model.load_state_dict(torch.load(ckp_path))
     
-    print('>>>>>>>>>>>>>>>>>>>>>>>>>> training <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
-    exp.train()
+    if args.train:
+        print('>>>>>>>>>>>>>>>>>>>>>>>>>> training <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+        exp.train()
     
     print('>>>>>>>>>>>>>>>>>>>>>>>>>> testing  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
     test_perp, test_rec = exp.test()

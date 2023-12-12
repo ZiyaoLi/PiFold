@@ -11,6 +11,7 @@ def create_parser():
     parser.add_argument('--use_gpu', default=True, type=bool)
     parser.add_argument('--gpu', default=0, type=int)
     parser.add_argument('--seed', default=111, type=int)
+    parser.add_argument("--checkpoint", default=None, type=str)
 
     # CATH
     # dataset parameters
@@ -44,6 +45,9 @@ def create_parser():
     parser.add_argument('--edge_angle', default=1, type=int)
     parser.add_argument('--edge_direct', default=1, type=int)
     parser.add_argument('--virtual_num', default=3, type=int)
-    
+
+    parser.add_argument('--noise_scale', default=0.0, type=float)
+    parser.add_argument('--noise_per_atom', action="store_true")
+    parser.add_argument('--train', action="store_true")
 
     return parser.parse_args()
