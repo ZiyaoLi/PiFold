@@ -27,7 +27,7 @@ def check_dir(path):
         os.makedirs(path)
 
 def get_dataset(config):
-    from API import load_data
+    from pifold.API import load_data
     return load_data(**config)
 
 def count_parameters(model):

@@ -10,4 +10,5 @@ __pycache__
 /tmp
 .vscode
 .ipynb_checkpoints
-out
+/out
+*.egg-info

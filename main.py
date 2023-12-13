@@ -8,8 +8,8 @@ import os.path as osp
 import warnings
 warnings.filterwarnings('ignore')
 
-from methods import ProDesign
-from API import Recorder
+from pifold.methods import ProDesign
+from pifold.API import Recorder
 from utils import *
 
 
