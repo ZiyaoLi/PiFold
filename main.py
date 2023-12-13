@@ -119,3 +119,18 @@ if __name__ == '__main__':
     
     print('>>>>>>>>>>>>>>>>>>>>>>>>>> testing  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
     test_perp, test_rec = exp.test()
+    os.makedirs(args.res_dir, exist_ok=True)
+    with open(osp.join(args.res_dir, "cath_res.txt"), "a") as f:
+        f.write(
+            ",".join(
+                [
+                    f"{args.noise_scale:.2f}",
+                    f"{args.noise_per_atom}",
+                    f"{exp.method.median_recovery:.6f}",
+                    f"{exp.method.mean_recovery:.6f}",
+                    f"{exp.method.std_recovery:.6f}",
+                    f"{exp.method.max_recovery:.6f}",
+                    f"{exp.method.min_recovery:.6f}",
+                ]
+            ) + "\n"
+        )
