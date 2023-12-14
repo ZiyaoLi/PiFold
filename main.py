@@ -120,7 +120,7 @@ if __name__ == '__main__':
     print('>>>>>>>>>>>>>>>>>>>>>>>>>> testing  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
     test_perp, test_rec = exp.test()
     os.makedirs(args.res_dir, exist_ok=True)
-    with open(osp.join(args.res_dir, "cath_res.txt"), "a") as f:
+    with open(osp.join(args.res_dir, f"{args.data_name.lower()}_res.txt"), "a") as f:
         f.write(
             ",".join(
                 [
